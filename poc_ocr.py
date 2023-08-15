@@ -14,19 +14,19 @@ def ocr_image(image):
     return text_thai
 
 def main():
-    st.title("Thai Language Image to Text OCR App")
-    st.write("Upload an image with Thai text")
+    st.title("ทดสอบระบบแปลง Image --> Text (Thai)")
+    st.write("Upload ภาพที่นี่")
 
-    uploaded_image = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
+    uploaded_image = st.file_uploader("เลือกภาพ...", type=["jpg", "png", "jpeg"])
 
     if uploaded_image is not None:
         image = Image.open(uploaded_image)
-        st.image(image, caption="Uploaded Image", use_column_width=True)
+        st.image(image, caption="ภาพที่ Upload มา. . .", use_column_width=True)
 
-        if st.button("Extract Thai Text"):
-            with st.spinner("Extracting Thai text..."):
+        if st.button("แปลงภาพเป็นข้อความ (ไทย)"):
+            with st.spinner("กำลังทำงานจ้าาาาา..."):
                 thai_text = ocr_image(image)
-                st.write("Extracted Thai Text:")
+                st.write("เสร็จแล้ววววว:")
                 st.write(thai_text)
 
 if __name__ == "__main__":
