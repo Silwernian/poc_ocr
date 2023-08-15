@@ -3,7 +3,8 @@ from PIL import Image
 import pytesseract
 
 # Set up Tesseract executable path (make sure you have Tesseract installed)
-pytesseract.pytesseract.tesseract_cmd = 'tesseract-ocr-w64-setup-5.3.1.20230401.exe'
+pytesseract.pytesseract.tesseract_cmd = './tesseract-ocr-w64-setup-5.3.1.20230401.exe'
+#pytesseract.pytesseract.tesseract_cmd = 'tesseract-ocr-w64-setup-5.3.1.20230401.exe'
 
 def ocr_image(image):
     text_thai = pytesseract.image_to_string(image, lang='tha')
