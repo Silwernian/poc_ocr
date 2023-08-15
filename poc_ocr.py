@@ -3,7 +3,7 @@ from PIL import Image
 import pytesseract
 
 # Set up Tesseract executable path (make sure you have Tesseract installed)
-pytesseract.pytesseract.tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = 'tesseract-ocr-w64-setup-5.3.1.20230401.exe'
 
 def ocr_image(image):
     text_mixed = pytesseract.image_to_string(image, config='--oem 1 --psm 6')
