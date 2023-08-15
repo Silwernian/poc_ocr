@@ -6,10 +6,6 @@ import pytesseract
 pytesseract.pytesseract.tesseract_cmd = 'tesseract-ocr-w64-setup-5.3.1.20230401.exe'
 
 def ocr_image(image):
-    text_mixed = pytesseract.image_to_string(image, config='--oem 1 --psm 6')
-    return text_mixed
-
-def ocr_image(image):
     text_thai = pytesseract.image_to_string(image, lang='tha')
     return text_thai
 
