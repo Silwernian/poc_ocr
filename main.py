@@ -9,7 +9,7 @@ import functions.functions as fc
 class OCR:
 
     def __init__(self):
-        st.set_page_config(page_title="Python OCR")
+        st.set_page_config(page_title="Python OCR V1.1")
         self.texto = ""
         self.analisar_texto = False
 
