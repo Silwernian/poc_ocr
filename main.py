@@ -16,7 +16,7 @@ class OCR:
     def inicial(self):
         
         st.title("POC of Image --> Text")
-        imagem = st.file_uploader("Upload Your Image Here:", type=["png","jpg"])
+        imagem = st.camera_input("Upload Your Image Here:")
         #se selecionar alguma imagem...
         if imagem:
             img = Image.open(imagem)
