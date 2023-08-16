@@ -9,13 +9,14 @@ import functions.functions as fc
 class OCR:
 
     def __init__(self):
-        st.set_page_config(page_title="Python OCR V1.2x", layout='wide')
+        st.set_page_config(page_title="Python OCR", layout='wide')
         self.texto = ""
         self.analisar_texto = False
 
     def inicial(self):
         
         st.title("POC of Image --> Text")
+        st.text('Version 1.2y')
         imagem = st.camera_input("Upload Your Image Here:")
         #se selecionar alguma imagem...
         if imagem:
@@ -27,7 +28,7 @@ class OCR:
              
     def extrair_texto(self, img):
         #O comando que extrai o texto da imagem
-        texto = pytesseract.image_to_string(img, lang="eng+tha_equ")
+        texto = pytesseract.image_to_string(img, lang="eng+tha+equ")
         return texto
     
     
