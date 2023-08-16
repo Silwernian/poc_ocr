@@ -28,7 +28,7 @@ class OCR:
              
     def extrair_texto(self, img):
         #O comando que extrai o texto da imagem
-        texto = pytesseract.image_to_string(img, lang="tha+equ+eng")
+        texto = pytesseract.image_to_string(img, lang='tha+equ')
         return texto
     
     
