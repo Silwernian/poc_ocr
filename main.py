@@ -1,9 +1,7 @@
-#import principal
 import streamlit as st
-#imports relacionados
 from PIL import Image
 import pytesseract
-#metodos internos
+import io
 import functions.functions as fc
 
 class OCR:
@@ -14,23 +12,33 @@ class OCR:
         self.analisar_texto = False
 
     def inicial(self):
-        
         st.title("POC of Image --> Text")
         st.text('Version 1.2a')
-        imagem = st.camera_input("Upload Your Image Here:")
-        #se selecionar alguma imagem...
-        if imagem:
-            img = Image.open(imagem)
-            st.image(img)
-            st.info("This is your Text . . .")
-            self.texto = self.extrair_texto(img)
-            st.write("{}".format(self.texto))
+
+        # User input for image source: Upload or Camera
+        option = st.radio("Select Image Source:", ("Upload Image", "Take a Picture"))
+
+        if option == "Upload Image":
+            uploaded_image = st.file_uploader("Upload Your Image Here:", type=["jpg", "png", "jpeg"])
+            if uploaded_image is not None:
+                img = Image.open(uploaded_image)
+                st.image(img)
+                st.info("This is your Text . . .")
+                self.texto = self.extrair_texto(img)
+                st.write("{}".format(self.texto))
+                
+        elif option == "Take a Picture":
+            camera_image = st.camera_input("Take a Picture:")
+            if camera_image is not None:
+                img = Image.open(io.BytesIO(camera_image))
+                st.image(img)
+                st.info("This is your Text . . .")
+                self.texto = self.extrair_texto(img)
+                st.write("{}".format(self.texto))
              
     def extrair_texto(self, img):
-        #O comando que extrai o texto da imagem
         texto = pytesseract.image_to_string(img, lang='tha+equ')
         return texto
-    
-    
+
 ocr = OCR()
 ocr.inicial()
