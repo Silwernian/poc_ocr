@@ -37,7 +37,7 @@ class OCR:
                 st.write("{}".format(self.texto))
              
     def extrair_texto(self, img):
-        texto = pytesseract.image_to_string(img, lang='tha+equ')
+        texto = pytesseract.image_to_string(img, lang='tha+eng')
         return texto
 
 ocr = OCR()
