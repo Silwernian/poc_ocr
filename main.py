@@ -16,7 +16,7 @@ class OCR:
     def inicial(self):
         
         st.title("POC of Image --> Text")
-        st.text('Version 1.2y')
+        st.text('Version 1.2z')
         imagem = st.camera_input("Upload Your Image Here:")
         #se selecionar alguma imagem...
         if imagem:
@@ -28,7 +28,7 @@ class OCR:
              
     def extrair_texto(self, img):
         #O comando que extrai o texto da imagem
-        texto = pytesseract.image_to_string(img, lang="eng+tha+equ")
+        texto = pytesseract.image_to_string(img, lang="eng+tha")
         return texto
     
     
