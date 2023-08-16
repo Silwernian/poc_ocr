@@ -20,7 +20,7 @@ class OCR:
         #se selecionar alguma imagem...
         if imagem:
             img = Image.open(imagem)
-            st.image(img, width=350)
+            st.image(img)
             st.info("This is your Text . . .")
             self.texto = self.extrair_texto(img)
             st.write("{}".format(self.texto))
