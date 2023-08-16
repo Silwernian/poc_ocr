@@ -13,7 +13,7 @@ class OCR:
 
     def inicial(self):
         st.title("POC of Image --> Text")
-        st.text('Version 1.2a')
+        st.text('Version 1.2b')
 
         # User input for image source: Upload or Camera
         option = st.radio("Select Image Source:", ("Upload Image", "Take a Picture"))
@@ -37,7 +37,7 @@ class OCR:
                 st.write("{}".format(self.texto))
              
     def extrair_texto(self, img):
-        texto = pytesseract.image_to_string(img, lang='tha+eng+equ')
+        texto = pytesseract.image_to_string(img, lang='tha+equ')
         return texto
 
 ocr = OCR()
